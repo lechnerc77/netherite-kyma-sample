@@ -1,6 +1,6 @@
 # Durable Functions with Netherite on Kyma
 
-This is a sample repository containing the setup of a Azure Durable Function with Netherite as storage provider deployed to Kyma.
+This is a sample repository containing the setup of a Azure Durable Function with [Netherite](https://github.com/microsoft/durabletask-netherite) as storage provider deployed to [Kyma](https://kyma-project.io/).
 
 ## Remark
 
@@ -8,7 +8,7 @@ Some files contain sensible information (like connection strings) and are theref
 
 For Docker:
 
-* `Makefile`-> set your docker account
+* `Makefile`-> set your Docker account
 * `env-sample.list` ->  copy that to env.list and put in your connection strings
 
 For Kubernetes:

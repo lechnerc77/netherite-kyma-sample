@@ -15,7 +15,7 @@ spec:
         app: netherite-function
     spec:
       containers:
-        - image: lechnerc77/containered_netherite:0.0.1
+        - image: <REFERENCE TO YOUR IMAGE>
           name: netherite-function
           ports:
             - containerPort: 80
