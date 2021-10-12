@@ -1,0 +1,6 @@
+### GET for local execution (npm run start)
+GET http://localhost:7071/api/orchestrators/DurableFunctionsNetheriteOrchestrator
+
+
+### GET for Docker Execution
+GET http://localhost:8080/api/orchestrators/DurableFunctionsNetheriteOrchestrator

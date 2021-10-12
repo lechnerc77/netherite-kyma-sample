@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netherite-function
+  labels:
+    app: netherite-function
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netherite-function
+  template:
+    metadata:
+      labels:
+        app: netherite-function
+    spec:
+      containers:
+        - image: lechnerc77/containered_netherite:0.0.1
+          name: netherite-function
+          ports:
+            - containerPort: 80
+          env:
+            - name: AzureWebJobsStorage
+              valueFrom:
+                secretKeyRef:
+                  key: AzureWebJobsStorage
+                  name: secretfornetheritefunction
+            - name: EventHubsConnection
+              valueFrom:
+                secretKeyRef:
+                  key: EventHubsConnection
+                  name: secretfornetheritefunction
+            - name: WEBSITE_HOSTNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: WEBSITE_HOSTNAME
+                  name: configfornetheritefunction
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: netherite-function
+  labels:
+    app: netherite-function
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: netherite-function
+  type: ClusterIP
+status:
+  loadBalancer: {}

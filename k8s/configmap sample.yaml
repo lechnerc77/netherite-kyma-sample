@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configfornetheritefunction
+  labels:
+    app: netherite-function
+data:
+# See https://stackoverflow.com/questions/64400695/azure-durable-function-httpstart-failure-webhooks-are-not-configured/64404153#64404153
+  WEBSITE_HOSTNAME: <YOUR HOSTNAME>

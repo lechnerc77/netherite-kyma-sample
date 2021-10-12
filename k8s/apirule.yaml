@@ -1,0 +1,18 @@
+# Just to check that Function worker is running for netherite
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  name: netherite-function
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /.*
+      accessStrategies:
+        - handler: noop
+          config: {}
+      methods:
+        - GET
+  service:
+    host: netherite-function
+    name: netherite-function
+    port: 80
